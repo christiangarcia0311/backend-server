@@ -4,7 +4,9 @@ projects:
 - name: StreamApp
   environments:
   - name: Production
-    databases:
+  buildCommand: bash ../build.sh
+  startCommand: python -m gunicorn stream.asgi:application -k uvicorn.workers.UvicornWorker
+  databases:
     - name: stream-app
       databaseName: stream_db_pgsi
       user: stream_db_pgsi_user
@@ -14,4 +16,3 @@ projects:
       - source: 0.0.0.0/0
         description: everywhere
       postgresMajorVersion: "18"
-
