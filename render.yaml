@@ -1,0 +1,17 @@
+# Exported from Render on 2025-12-09T16:52:40Z
+version: "1"
+projects:
+- name: StreamApp
+  environments:
+  - name: Production
+    databases:
+    - name: stream-app
+      databaseName: stream_db_pgsi
+      user: stream_db_pgsi_user
+      plan: free
+      region: singapore
+      ipAllowList:
+      - source: 0.0.0.0/0
+        description: everywhere
+      postgresMajorVersion: "18"
+
